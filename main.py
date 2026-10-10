@@ -5,7 +5,7 @@ IMPROVEMENTS TO BE MADE:
 
 1. [FIXED] Make the text on the victory screen bigger. atleast twice the current size.
 
-2. Make the positionings of the monsters dynamic. so different monsters of different sizes all fit the screen, without going off-screen or overlapping with TEXT or UI etc.
+2. [FIXED] Make the positionings of the monsters dynamic. so different monsters of different sizes all fit the screen, without going off-screen or overlapping with TEXT or UI etc.
 
 3. Maybe move the attack menu/buttons to the bottom of screen instead ? and have the player on the right side, at the top of the buttons/menu. This would need us to readjust the buttons, health, texts, names, etc etc etc....
 """

@@ -156,7 +156,11 @@ class OpponentUI:
         self.font = pygame.font.Font(None, 30)
 
     def draw(self):
-        rect = pygame.FRect((0,0), (250,80)).move_to(midleft=(500, self.monster.rect.centery))
+        rect = pygame.FRect((0,0), (250,80)).move_to(bottomright=(self.monster.rect.left - 20, self.monster.rect.centery))
+        # Fallback if it goes off-screen
+        if rect.left < 10:
+            rect = pygame.FRect((0,0), (250,80)).move_to(midbottom=(self.monster.rect.centerx, self.monster.rect.top - 20))
+            
         pygame.draw.rect(self.display_surface, COLORS['white'], rect, 0, 4)
         pygame.draw.rect(self.display_surface, COLORS['gray'], rect, 4, 4)
 

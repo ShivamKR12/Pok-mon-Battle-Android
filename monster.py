@@ -19,8 +19,16 @@ class Creature:
 class Monster(pygame.sprite.Sprite, Creature):
     def __init__(self, name, surf):
         super().__init__()
+        
+        max_w = WINDOW_WIDTH * 0.4
+        max_h = WINDOW_HEIGHT * 0.4
+        w, h = surf.get_size()
+        if w > max_w or h > max_h:
+            scale = min(max_w / w, max_h / h)
+            surf = pygame.transform.smoothscale(surf, (int(w * scale), int(h * scale)))
+            
         self.image = surf 
-        self.rect = self.image.get_frect(bottomleft = (100, WINDOW_HEIGHT - 80))
+        self.rect = self.image.get_frect(midbottom = (WINDOW_WIDTH * 0.25, WINDOW_HEIGHT * 0.85))
         self.get_data(name)
     
     def __repr__(self):
@@ -29,6 +37,14 @@ class Monster(pygame.sprite.Sprite, Creature):
 class Opponent(pygame.sprite.Sprite, Creature):
     def __init__(self, name, surf, groups):
         super().__init__(groups)
+        
+        max_w = WINDOW_WIDTH * 0.4
+        max_h = WINDOW_HEIGHT * 0.4
+        w, h = surf.get_size()
+        if w > max_w or h > max_h:
+            scale = min(max_w / w, max_h / h)
+            surf = pygame.transform.smoothscale(surf, (int(w * scale), int(h * scale)))
+            
         self.image = surf
-        self.rect = self.image.get_frect(midbottom = (WINDOW_WIDTH - 250, 400))
+        self.rect = self.image.get_frect(midbottom = (WINDOW_WIDTH * 0.75, WINDOW_HEIGHT * 0.45))
         self.get_data(name)
