@@ -3,7 +3,7 @@
 """
 IMPROVEMENTS TO BE MADE: 
 
-1. Make the text on the victory screen bigger. atleast twice the current size.
+1. [FIXED] Make the text on the victory screen bigger. atleast twice the current size.
 
 2. Make the positionings of the monsters dynamic. so different monsters of different sizes all fit the screen, without going off-screen or overlapping with TEXT or UI etc.
 
@@ -190,7 +190,7 @@ class Game:
                 blur_surf.blit(tint_surf, (0, 0))
                 self.display_surface.blit(blur_surf, (0, 0))
 
-                font = pygame.font.Font(None, 100)
+                font = pygame.font.Font(None, 200)
                 text = 'VICTORY' if self.state == 'victory' else 'GAME OVER'
                 color = COLORS['green'] if self.state == 'victory' else COLORS['red']
                 text_surf = font.render(text, True, color)
